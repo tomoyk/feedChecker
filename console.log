@@ -1,0 +1,9 @@
+2018-03-08 21:09:16.472718 [Errno 2] No such file or directory: 'feed_old.xml'
+2018-03-08 21:09:45.616495 [Errno 2] No such file or directory: 'feed_old.xml'
+2018-03-08 21:11:19.279717 [Errno 2] No such file or directory: 'feed_old.xml'
+2018-03-08 21:11:36.198339 [Errno 2] No such file or directory: 'feed_old.xml'
+2018-03-08 23:52:40.138425 [info] update was not found.
+2018-03-09 00:08:35.770205 <urlopen error [Errno 113] No route to host>
+2018-03-09 00:09:09.820013 [Errno 2] No such file or directory: 'feed.xml' -> 'feed_old.xml'
+2018-03-09 00:42:53.511560 [info] update was not found.
+2018-03-09 00:45:01.451399 [info] update was not found.
