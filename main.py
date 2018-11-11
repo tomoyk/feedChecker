@@ -4,6 +4,7 @@ import feedparser
 import os
 import sys
 import urllib.request
+import time
 from feeder import Feeder
 
 argv=sys.argv
@@ -29,7 +30,6 @@ def save_log(message):
 
 def main():
     try:
-        os.chdir('feedChecker')
         if( os.path.exists('feed.xml') ):
             os.remove('feed_old.xml')
             os.rename('feed.xml', 'feed_old.xml')
@@ -64,6 +64,7 @@ def main():
     for entry in new_entries:
         body = entry['title'] + ' (' + entry['date'] +  ')\n' + entry['uri'] + '\n'
         Feeder.notify_slack(message=body)
+        time.sleep(3)
 
 if __name__ == '__main__':
     main()

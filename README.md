@@ -1,18 +1,4 @@
 # feedChecker
-
 学内サイトのお知らせをスクレイピングするコード
 
-## Usage
-
-Install feedparser
-
-```
-pip3 install feedparser
-```
-
-Run main.py
-
-```
-python3 main.py
-```
-
+feed.xmlが存在しないとエラーになるので、存在しない場合は `touch feed.xml` などで回避する.

@@ -1,5 +1,7 @@
 import datetime
 import os
+import requests
+import json
 
 class Feeder:
     def __init__(self):
@@ -44,12 +46,13 @@ class Feeder:
                 # debug:: print("New Content: \n\t" + str(t))
                 added_entry.append(t)
         return added_entry
-
+     
     @staticmethod
     def notify_slack(message):
-        TOKEN   = '12345'
-        USER    = 'Feeder'
-        CHANNEL = 'feeder'
-
-        os.system('curl -s -XPOST -d token="' + TOKEN + '" -d channel="#' + CHANNEL + '" -d text="' + message + '" -d username="' + USER + '    " https://slack.com/api/chat.postMessage')
+        requests.post('https://hooks.slack.com/services/', data = json.dumps({
+            'text': message, # 投稿するテキスト
+            'username': u'feedChecker', # 投稿のユーザー名
+            'icon_emoji': u':robot_face:', # 投稿のプロフィール画像に入れる絵文字
+            'link_names': 1, # メンションを有効にする
+        }))
 
