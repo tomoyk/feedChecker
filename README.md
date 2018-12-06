@@ -33,8 +33,16 @@ https://tomoyk.slack.com/apps/new/A0F7XDUAZ--incoming-webhook-
 $ python3 main.py
 ```
 
-Cronに登録する。
+スクリプトを作ってCronに登録する。
 
 ```
-*/5 * * * *  /usr/bin/cd /home/foo/feedChecker && /usr/bin/python3 /home/foo/feedChecker/main.py
+#!/bin/bash -xe
+
+cd /home/foo/feedChecker
+/usr/bin/python3 main.py
+```
+
+```
+$ crontab -e
+*/5 * * * *  /bin/bash /home/foo/run.sh                                          
 ```
