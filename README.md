@@ -5,21 +5,26 @@ feed.xmlが存在しないとエラーになるので、存在しない場合は
 
 ## 使い方
 
-Githubから落とす。
+GitHubからダウンロード
+
 ```
 git clone https://github.com/tomoyk/feedChecker
 ```
 
-以下からクレデンシャルを取得する。
+Python3環境のセットアップ
 
-https://tomoyk.slack.com/apps/new/A0F7XDUAZ--incoming-webhook-
+```
+python3 -m venv env
+. env/bin/activate
+pip install -r requirements.txt
+```
 
-以下のソースの `https://hooks.slack.com/services/` を取得したIncoming WebhookのURLに修正する。
+クレデンシャルを取得して，以下にセット
 
 ```
  @staticmethod
     def notify_slack(message):
-        requests.post('https://hooks.slack.com/services/', data = json.dumps({
+        requests.post('https://hooks.slack.com/services/xxxx', data = json.dumps({
             'text': message, # 投稿するテキスト
             'username': u'feedChecker', # 投稿のユーザー名
             'icon_emoji': u':robot_face:', # 投稿のプロフィール画像に入れる絵文字
@@ -27,19 +32,20 @@ https://tomoyk.slack.com/apps/new/A0F7XDUAZ--incoming-webhook-
         }))
 ```
 
-動かす。
+実行
 
 ```
-$ python3 main.py
+python main.py
 ```
 
-スクリプトを作ってCronに登録する。
+スクリプトを作ってCronに登録
 
 ```
 #!/bin/bash -xe
 
 cd /home/foo/feedChecker
-/usr/bin/python3 main.py
+. env/bin/activate
+python main.py
 ```
 
 ```
