@@ -1,0 +1,14 @@
+[Unit]
+Description=Feeder
+
+[Service]
+Type=simple
+ExecStart=/home/koyama/feedChecker/env/bin/python /home/koyama/feedChecker/main.py
+Environment=DISCORD_WEBHOOK=https://discord.com/api/webhooks/909284715918397450/S-nm5w5MxlpKDjt3IDELySigKPPKfn7Wtc5svVCkA_hMScYIH7PVRcRv1ZC9iwCA3UBW
+WorkingDirectory=/home/koyama/feedChecker
+User=koyama
+Group=koyama
+
+[Install]
+WantedBy=multi-user.target
+

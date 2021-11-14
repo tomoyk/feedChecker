@@ -1,0 +1,12 @@
+[Unit]
+Description=FeederTimer
+
+[Timer]
+# ブート後、この時間後にこのタイマーを開始する
+OnBootSec=2min
+# 実行する時間の間隔
+OnUnitActiveSec=60s
+Unit=feeder.service
+
+[Install]
+WantedBy=multi-user.target
