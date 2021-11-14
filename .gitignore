@@ -1,0 +1,10 @@
+env/
+venv/
+.env/
+.venv/
+
+feed.xml
+feed_old.xml
+
+__pycache__/
+console.log
