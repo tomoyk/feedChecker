@@ -63,7 +63,7 @@ def main():
 
     for entry in new_entries:
         body = entry['title'] + ' (' + entry['date'] +  ')\n' + entry['uri'] + '\n'
-        Feeder.notify_slack(message=body)
+        Feeder.notify_discord(message=body)
         time.sleep(3)
 
 if __name__ == '__main__':

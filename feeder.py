@@ -56,3 +56,11 @@ class Feeder:
             'link_names': 1, # メンションを有効にする
         }))
 
+    @staticmethod
+    def notify_discord(message):
+        DISCORD_WEBHOOK = os.getenv('DISCORD_WEBHOOK', 'EMPTY')
+        assert DISCORD_WEBHOOK != 'EMPTY'
+        requests.post(DISCORD_WEBHOOK, {
+            'username': 'SiteUpdateNotice',
+            'content': message
+        })
