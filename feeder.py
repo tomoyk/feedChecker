@@ -60,7 +60,8 @@ class Feeder:
     def notify_discord(message):
         DISCORD_WEBHOOK = os.getenv('DISCORD_WEBHOOK', 'EMPTY')
         assert DISCORD_WEBHOOK != 'EMPTY'
-        requests.post(DISCORD_WEBHOOK, {
+        r_body = requests.post(DISCORD_WEBHOOK, {
             'username': 'SiteUpdateNotice',
             'content': message
         })
+        r_body.raise_for_status()

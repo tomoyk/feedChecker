@@ -62,6 +62,7 @@ def main():
     print('[ok] Success to fetch difference between fresh and saved')
 
     for entry in new_entries:
+        print(entry["title"])
         body = entry['title'] + ' (' + entry['date'] +  ')\n' + entry['uri'] + '\n'
         Feeder.notify_discord(message=body)
         time.sleep(3)
